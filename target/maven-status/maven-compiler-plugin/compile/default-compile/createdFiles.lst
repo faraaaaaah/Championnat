@@ -1,0 +1,10 @@
+tn\esprit\ds\championnat\entities\Contrat.class
+tn\esprit\ds\championnat\entities\Categorie.class
+tn\esprit\ds\championnat\entities\Position.class
+tn\esprit\ds\championnat\entities\Pilote.class
+tn\esprit\ds\championnat\entities\Equipe.class
+tn\esprit\ds\championnat\entities\Sponsor.class
+tn\esprit\ds\championnat\entities\Course.class
+tn\esprit\ds\championnat\entities\DetailChampionnat.class
+tn\esprit\ds\championnat\entities\Championnat.class
+tn\esprit\ds\championnat\ChampionnatApplication.class
