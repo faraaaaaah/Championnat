@@ -7,6 +7,7 @@ package tn.esprit.ds.championnat.entities;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -44,6 +45,34 @@ public class Sponsor {
 
     @OneToMany(mappedBy = "sponsor")
     public List<Contrat> contrats;
+
+    public boolean isArchieved() {
+        return archieved;
+    }
+
+    public void setArchieved(boolean archieved) {
+        this.archieved = archieved;
+    }
+
+    public LocalDate getDateDerniereModification() {
+        return dateDerniereModification;
+    }
+
+    public void setDateDerniereModification(LocalDate dateDerniereModification) {
+        this.dateDerniereModification = dateDerniereModification;
+    }
+
+    public LocalDate getDateCreation() {
+        return dateCreation;
+    }
+
+    public void setDateCreation(LocalDate dateCreation) {
+        this.dateCreation = dateCreation;
+    }
+
+    boolean archieved;
+    LocalDate dateCreation;
+    LocalDate dateDerniereModification;
 
     public Long getIdSponsor() {
         return this.idSponsor;
