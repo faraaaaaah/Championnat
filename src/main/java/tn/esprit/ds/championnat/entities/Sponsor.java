@@ -46,6 +46,12 @@ public class Sponsor {
     @OneToMany(mappedBy = "sponsor")
     public List<Contrat> contrats;
 
+
+    boolean archieved;
+
+    LocalDate dateCreation;
+    LocalDate dateDerniereModification;
+
     public boolean isArchieved() {
         return archieved;
     }
@@ -70,9 +76,7 @@ public class Sponsor {
         this.dateCreation = dateCreation;
     }
 
-    boolean archieved;
-    LocalDate dateCreation;
-    LocalDate dateDerniereModification;
+
 
     public Long getIdSponsor() {
         return this.idSponsor;

@@ -6,7 +6,7 @@
 package tn.esprit.ds.championnat.entities;
 
 import jakarta.persistence.*;
-
+import tn.esprit.ds.championnat.entities.Categorie;
 import java.util.List;
 
 @Entity
@@ -35,8 +35,13 @@ public class Pilote {
     @Column(
             name = "classement_general"
     )
-    Integer classementGeneal;
+    Integer classementGeneral;
 
+    @Enumerated(EnumType.STRING)
+    @Column(
+            name = "categorie"
+    )
+    Categorie categorie;
     @OneToMany(mappedBy = "pilote")
     public List<Position> positions;
 
@@ -67,11 +72,19 @@ public class Pilote {
         this.nbPointsTotal = nbPointsTotal;
     }
 
-    public Integer getClassementGeneal() {
-        return this.classementGeneal;
+    public Integer getClassementGeneral() {
+        return this.classementGeneral;
     }
 
-    public void setClassementGeneal(Integer classementGeneal) {
-        this.classementGeneal = classementGeneal;
+    public void setClassementGeneral(Integer classementGeneral) {
+        this.classementGeneral = classementGeneral;
+    }
+
+    public Categorie getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
     }
 }

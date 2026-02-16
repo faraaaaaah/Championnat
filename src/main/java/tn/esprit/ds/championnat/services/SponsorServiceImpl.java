@@ -1,5 +1,7 @@
 package tn.esprit.ds.championnat.services;
 
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 import tn.esprit.ds.championnat.entities.Sponsor;
 import tn.esprit.ds.championnat.repositories.SponsorRepository;
 
@@ -8,12 +10,15 @@ import java.util.List;
 
 import static java.lang.System.in;
 
+@Service
+@AllArgsConstructor
+
 public class SponsorServiceImpl implements ISponsorService{
     private SponsorRepository sponsorRepository;
 
     @Override
     public Sponsor ajouterSponsor(Sponsor sponsor) {
-        sponsor.setDateCreation(LocalDate.now());
+        //sponsor.setDateCreation(LocalDate.now());
         sponsor.setArchieved(false);
         sponsor.setBloquerContrat(false);
         return sponsorRepository.save(sponsor);
@@ -24,7 +29,7 @@ public class SponsorServiceImpl implements ISponsorService{
         //return List.of();
         for(Sponsor sponsor : sponsors)
         {
-            sponsor.setDateCreation(LocalDate.now());
+            //sponsor.setDateCreation(LocalDate.now());
             sponsor.setArchieved(false);
             sponsor.setBloquerContrat(false);
         }
