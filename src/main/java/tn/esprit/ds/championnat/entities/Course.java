@@ -6,11 +6,18 @@
 package tn.esprit.ds.championnat.entities;
 
 import jakarta.persistence.*;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 @Table(
         name = "Course"
 )
@@ -41,27 +48,4 @@ public class Course {
     @OneToMany(mappedBy = "course")
     public List<Position> positions;
 
-    public Long getIdCourse() {
-        return this.idCourse;
-    }
-
-    public void setIdCourse(Long idCourse) {
-        this.idCourse = idCourse;
-    }
-
-    public String getEmplacement() {
-        return this.emplacement;
-    }
-
-    public void setEmplacement(String emplacement) {
-        this.emplacement = emplacement;
-    }
-
-    public LocalDate getDateCourse() {
-        return this.dateCourse;
-    }
-
-    public void setDateCourse(LocalDate dateCourse) {
-        this.dateCourse = dateCourse;
-    }
 }

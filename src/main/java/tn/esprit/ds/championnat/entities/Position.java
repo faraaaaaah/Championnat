@@ -6,8 +6,15 @@
 package tn.esprit.ds.championnat.entities;
 
 import jakarta.persistence.*;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 @Table(
         name = "Position"
 )
@@ -35,28 +42,4 @@ public class Position {
 
     @ManyToOne
     public Pilote pilote;
-
-    public Long getIdPosition() {
-        return this.idPosition;
-    }
-
-    public void setIdPosition(Long idPosition) {
-        this.idPosition = idPosition;
-    }
-
-    public Integer getClassement() {
-        return this.classement;
-    }
-
-    public void setClassement(Integer classement) {
-        this.classement = classement;
-    }
-
-    public Integer getNbPoints() {
-        return this.nbPoints;
-    }
-
-    public void setNbPoints(Integer nbPoints) {
-        this.nbPoints = nbPoints;
-    }
 }

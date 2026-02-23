@@ -6,10 +6,17 @@
 package tn.esprit.ds.championnat.entities;
 
 import jakarta.persistence.*;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 @Table(
         name = "Equipe"
 )
@@ -43,35 +50,4 @@ public class Equipe {
     @OneToMany(mappedBy = "equipe")
     public List<Contrat> contrats;
 
-    public Long getIdEquipe() {
-        return this.idEquipe;
-    }
-
-    public void setIdEquipe(Long idEquipe) {
-        this.idEquipe = idEquipe;
-    }
-
-    public String getLibelle() {
-        return this.libelle;
-    }
-
-    public void setLibelle(String libelle) {
-        this.libelle = libelle;
-    }
-
-    public Integer getNbPointsTotal() {
-        return this.nbPointsTotal;
-    }
-
-    public void setNbPointsTotal(Integer nbPointsTotal) {
-        this.nbPointsTotal = nbPointsTotal;
-    }
-
-    public Integer getClassementGeneral() {
-        return this.classementGeneral;
-    }
-
-    public void setClassementGeneral(Integer classementGeneral) {
-        this.classementGeneral = classementGeneral;
-    }
 }

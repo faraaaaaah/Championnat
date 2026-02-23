@@ -6,10 +6,17 @@
 package tn.esprit.ds.championnat.entities;
 
 import jakarta.persistence.*;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 import tn.esprit.ds.championnat.entities.Categorie;
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 @Table(
         name = "Pilote"
 )
@@ -48,43 +55,4 @@ public class Pilote {
     @ManyToOne
     public Equipe equipe;
 
-    public Long getIdPilote() {
-        return this.idPilote;
-    }
-
-    public void setIdPilote(Long idPilote) {
-        this.idPilote = idPilote;
-    }
-
-    public String getLibelleP() {
-        return this.libelleP;
-    }
-
-    public void setLibelleP(String libelleP) {
-        this.libelleP = libelleP;
-    }
-
-    public Integer getNbPointsTotal() {
-        return this.nbPointsTotal;
-    }
-
-    public void setNbPointsTotal(Integer nbPointsTotal) {
-        this.nbPointsTotal = nbPointsTotal;
-    }
-
-    public Integer getClassementGeneral() {
-        return this.classementGeneral;
-    }
-
-    public void setClassementGeneral(Integer classementGeneral) {
-        this.classementGeneral = classementGeneral;
-    }
-
-    public Categorie getCategorie() {
-        return categorie;
-    }
-
-    public void setCategorie(Categorie categorie) {
-        this.categorie = categorie;
-    }
 }

@@ -6,8 +6,15 @@
 package tn.esprit.ds.championnat.entities;
 
 import jakarta.persistence.*;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 @Table(
         name = "Contrat"
 )
@@ -41,35 +48,4 @@ public class Contrat {
     @ManyToOne
     public Sponsor sponsor;
 
-    public Long getIdContrat() {
-        return this.idContrat;
-    }
-
-    public void setIdContrat(Long idContrat) {
-        this.idContrat = idContrat;
-    }
-
-    public Float getMontant() {
-        return this.montant;
-    }
-
-    public void setMontant(Float montant) {
-        this.montant = montant;
-    }
-
-    public String getAnnee() {
-        return this.annee;
-    }
-
-    public void setAnnee(String annee) {
-        this.annee = annee;
-    }
-
-    public Boolean getArchieved() {
-        return this.archieved;
-    }
-
-    public void setArchieved(Boolean archieved) {
-        this.archieved = archieved;
-    }
 }
