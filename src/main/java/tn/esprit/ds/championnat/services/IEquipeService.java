@@ -4,4 +4,5 @@ import tn.esprit.ds.championnat.entities.Equipe;
 
 public interface IEquipeService {
     Equipe ajouterEquipe(Equipe equipe);
+    Equipe findByLibelle(String libelle);
 }

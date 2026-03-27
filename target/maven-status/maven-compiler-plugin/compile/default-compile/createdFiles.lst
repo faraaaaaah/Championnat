@@ -1,13 +1,14 @@
 tn\esprit\ds\championnat\services\IPiloteService.class
 tn\esprit\ds\championnat\services\EquipeServiceImpl.class
-tn\esprit\ds\championnat\services\PiloteServiceImpl.class
+tn\esprit\ds\championnat\controllers\ContratController.class
+tn\esprit\ds\championnat\services\IChampionnatService.class
 tn\esprit\ds\championnat\entities\Sponsor.class
-tn\esprit\ds\championnat\repositories\PiloteRepository.class
+tn\esprit\ds\championnat\services\ICourseService.class
+tn\esprit\ds\championnat\repositories\PositionRepository.class
 tn\esprit\ds\championnat\repositories\EquipeRepository.class
 tn\esprit\ds\championnat\entities\Contrat.class
 tn\esprit\ds\championnat\entities\Categorie.class
 tn\esprit\ds\championnat\entities\Position.class
-tn\esprit\ds\championnat\controllers\PiloteController.class
 tn\esprit\ds\championnat\entities\Pilote.class
 tn\esprit\ds\championnat\entities\Equipe.class
 tn\esprit\ds\championnat\services\IEquipeService.class

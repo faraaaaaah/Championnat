@@ -8,7 +8,6 @@ import tn.esprit.ds.championnat.repositories.SponsorRepository;
 import java.time.LocalDate;
 import java.util.List;
 
-import static java.lang.System.in;
 
 @Service
 @AllArgsConstructor
@@ -68,4 +67,11 @@ public class SponsorServiceImpl implements ISponsorService{
         sponsorRepository.save(sponsor);
         return true;
     }
+
+    @Override
+    public Sponsor findByNomAndPays(String nom,String pays)
+    {
+        return sponsorRepository.findByNomAndPays(nom,pays);
+    }
+
 }

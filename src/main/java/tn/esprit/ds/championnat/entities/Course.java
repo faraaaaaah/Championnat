@@ -5,6 +5,7 @@
 
 package tn.esprit.ds.championnat.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -43,9 +44,11 @@ public class Course {
     LocalDate dateCourse;
 
     @ManyToMany(mappedBy = "courses")
+    @JsonIgnore
     public List<Championnat> championnats;
 
     @OneToMany(mappedBy = "course")
+    @JsonIgnore
     public List<Position> positions;
 
 }

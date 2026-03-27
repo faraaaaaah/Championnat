@@ -18,4 +18,6 @@ public interface ISponsorService {
     Sponsor recupererSponsor(Long idSponsor);
 
     Boolean archiverSponsor(Long idSponsor);
+
+    Sponsor findByNomAndPays(String nom,String pays);
 }

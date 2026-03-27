@@ -5,6 +5,7 @@
 
 package tn.esprit.ds.championnat.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -32,6 +33,7 @@ public class DetailChampionnat {
     String description;
 
     @OneToOne(mappedBy = "detailChampionnat")
+    @JsonIgnore
     public Championnat championnat;
 
 }

@@ -1,12 +1,11 @@
 package tn.esprit.ds.championnat.controllers;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import tn.esprit.ds.championnat.entities.Pilote;
 import tn.esprit.ds.championnat.entities.Sponsor;
 import tn.esprit.ds.championnat.services.PiloteServiceImpl;
@@ -19,8 +18,17 @@ public class PiloteController {
     private PiloteServiceImpl piloteService;
 
     @Operation(description="ajouter un pilote dans la base")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Pilote ajouté avec succès"),
+            @ApiResponse(responseCode = "400", description = "Requête invalide")
+    })
     @PostMapping("/addpilote")
     public String addPilote(@RequestBody Pilote p) {
         return piloteService.addPilote(p);
+    }
+
+    @PutMapping("/affecterpilote-equipe/{libelleP}/{libelle}")
+    public Pilote affecterPiloteAEquipe(@PathVariable String libelleP,@PathVariable String libelle) {
+        return piloteService.affecterPiloteAEquipe(libelleP,libelle);
     }
 }

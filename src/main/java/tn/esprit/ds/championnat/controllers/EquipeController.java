@@ -1,6 +1,8 @@
 package tn.esprit.ds.championnat.controllers;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +20,10 @@ public class EquipeController {
     private EquipeServiceImpl equipeService;
 
     @Operation(description="ajouter une équipe dans la base")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Equipe ajoutée avec succès"),
+            @ApiResponse(responseCode = "400", description = "Requête invalide")
+    })
     @PostMapping("/addequipe")
     public Equipe ajouterEquipe(@RequestBody Equipe equipe) {
         Equipe e = equipeService.ajouterEquipe(equipe);

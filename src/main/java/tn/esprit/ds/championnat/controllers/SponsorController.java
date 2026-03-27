@@ -1,6 +1,8 @@
 package tn.esprit.ds.championnat.controllers;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +19,10 @@ public class SponsorController {
     private SponsorServiceImpl sponsorService;
 
     @Operation(description="ajouter un sponsor dans la base")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Sponsor ajouté avec succès"),
+            @ApiResponse(responseCode = "400", description = "Requête invalide")
+    })
     @PostMapping("/addsponsor")
     public Sponsor ajouterSponsor(@RequestBody Sponsor s) {
         Sponsor sponsor = sponsorService.ajouterSponsor(s);
@@ -24,6 +30,10 @@ public class SponsorController {
     }
 
     @Operation(description="ajouter une liste de sponsors dans la base")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Liste ajoutée avec succès"),
+            @ApiResponse(responseCode = "400", description = "Requête invalide")
+    })
     @PostMapping("/addsponsors")
     public List<Sponsor> ajouterSponsors(@RequestBody List<Sponsor> s) {
         List<Sponsor> sponsors = sponsorService.ajouterSponsors(s);
@@ -31,6 +41,10 @@ public class SponsorController {
     }
 
     @Operation(description="modifier un sponsor de la base")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Sponsor modifié avec succès"),
+            @ApiResponse(responseCode = "400", description = "Requête invalide")
+    })
     @PutMapping("/updatesponsor")
     public Sponsor modifierSponsor(@RequestBody Sponsor s) {
         Sponsor sponsor= sponsorService.modifierSponsor(s);
@@ -38,12 +52,20 @@ public class SponsorController {
     }
 
     @Operation(description="supprimer un sponsor de la base")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Sponsor supprimé avec succès"),
+            @ApiResponse(responseCode = "400", description = "Requête invalide")
+    })
     @DeleteMapping("/removesponsor/{idSponsor}")
     public void supprimerSponsor(@PathVariable("idSponsor") Long idSponsor) {
             sponsorService.supprimerSponsor(idSponsor);
 }
 
     @Operation(description="récupérer tous les sponsors de la base")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Liste récupérée avec succès"),
+            @ApiResponse(responseCode = "400", description = "Requête invalide")
+    })
     @GetMapping("/retrieveallsponsors")
     public List<Sponsor> listSponsors() {
         List<Sponsor> listeSponsors = sponsorService.listSponsors();
@@ -51,12 +73,20 @@ public class SponsorController {
     }
 
     @Operation(description="récupérer un sponsor de la base")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Sponsor récuperé avec succès"),
+            @ApiResponse(responseCode = "400", description = "Requête invalide")
+    })
     @GetMapping("/retrievesponsor/{idSponsor}")
     public Sponsor recupererSponsor(@PathVariable("idSponsor") Long idSponsor) {
             return sponsorService.recupererSponsor(idSponsor);
 }
 
     @Operation(description="archiver un sponsor de la base")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Sponsor archivé avec succès"),
+            @ApiResponse(responseCode = "400", description = "Requête invalide")
+    })
     @PutMapping("/archievedsponsor/{idSponsor}")
     public Boolean archiverSponsor(@PathVariable Long idSponsor) {
         Boolean sponsor= sponsorService.archiverSponsor(idSponsor);

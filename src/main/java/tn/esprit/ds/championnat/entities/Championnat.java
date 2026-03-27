@@ -45,10 +45,10 @@ public class Championnat {
     )
     Integer annee;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     public DetailChampionnat detailChampionnat;
 
-    @ManyToMany
+    @ManyToMany(cascade=CascadeType.ALL)
     public List<Course> courses;
 
 }
