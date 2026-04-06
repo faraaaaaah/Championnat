@@ -6,4 +6,5 @@ public interface IPiloteService {
     String addPilote(Pilote p) ;
     Pilote findByLibelleP(String libelleP);
     Pilote affecterPiloteAEquipe(String libP,String libEq);
+    void aJourNbPointsPilote();
 }
