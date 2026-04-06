@@ -1,13 +1,16 @@
 package tn.esprit.ds.championnat.services;
 
 import lombok.AllArgsConstructor;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import tn.esprit.ds.championnat.entities.Course;
 import tn.esprit.ds.championnat.entities.Equipe;
 import tn.esprit.ds.championnat.entities.Pilote;
 import tn.esprit.ds.championnat.repositories.EquipeRepository;
 import tn.esprit.ds.championnat.repositories.PiloteRepository;
 import tn.esprit.ds.championnat.repositories.SponsorRepository;
 
+import java.time.Year;
 import java.util.List;
 
 @Service
@@ -31,5 +34,15 @@ public class PiloteServiceImpl implements IPiloteService{
         p.setEquipe(eq);
         piloteRepository.save(p);
         return p;
+    }
+
+    @Override
+    @Scheduled(cron="*/0 15 11 31 12 *")
+    public void aJourNbPointsPilote()
+    {int anneeCourante = Year.now().getValue();
+        for(Pilote p:piloteRepository.findAll())
+            {
+                
+            }
     }
 }
