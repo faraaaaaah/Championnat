@@ -2,7 +2,9 @@ package tn.esprit.ds.championnat.services;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import tn.esprit.ds.championnat.entities.Contrat;
 import tn.esprit.ds.championnat.entities.Sponsor;
+import tn.esprit.ds.championnat.repositories.ContratRepository;
 import tn.esprit.ds.championnat.repositories.SponsorRepository;
 
 import java.time.LocalDate;
@@ -14,6 +16,7 @@ import java.util.List;
 
 public class SponsorServiceImpl implements ISponsorService{
     private SponsorRepository sponsorRepository;
+    private ContratRepository contratRepository;
 
     @Override
     public Sponsor ajouterSponsor(Sponsor sponsor) {
@@ -74,4 +77,19 @@ public class SponsorServiceImpl implements ISponsorService{
         return sponsorRepository.findByNomAndPays(nom,pays);
     }
 
+    @Override
+    public double pourcentageBudgetAnnuelConsomme(Long idSponsor, int annee) {
+        Sponsor sponsor = sponsorRepository.findById(idSponsor).orElse(null);
+        if (sponsor == null || sponsor.getBudgetAnnuel() == null || sponsor.getBudgetAnnuel() == 0) {
+            return 0;
+        }
+        List<Contrat> contrats = contratRepository.findBySponsorIdSponsorAndAnnee(idSponsor,String.valueOf(annee));
+
+        double totalDepense = 0;
+        for (Contrat contrat : contrats) {
+            totalDepense += contrat.getMontant();
+        }
+
+        return (totalDepense / sponsor.getBudgetAnnuel()) * 100;
+    }
 }

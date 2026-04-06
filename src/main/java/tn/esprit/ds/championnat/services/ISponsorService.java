@@ -20,4 +20,6 @@ public interface ISponsorService {
     Boolean archiverSponsor(Long idSponsor);
 
     Sponsor findByNomAndPays(String nom,String pays);
+
+    double pourcentageBudgetAnnuelConsomme(Long idSponsor, int annee);
 }
