@@ -3,9 +3,7 @@ package tn.esprit.ds.championnat.services;
 import lombok.AllArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-import tn.esprit.ds.championnat.entities.Contrat;
 import tn.esprit.ds.championnat.entities.Sponsor;
-import tn.esprit.ds.championnat.repositories.ContratRepository;
 import tn.esprit.ds.championnat.repositories.SponsorRepository;
 
 import java.time.LocalDate;

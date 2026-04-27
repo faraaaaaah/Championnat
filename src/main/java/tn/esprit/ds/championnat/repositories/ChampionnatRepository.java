@@ -5,4 +5,5 @@ import org.springframework.stereotype.Repository;
 import tn.esprit.ds.championnat.entities.Championnat;
 @Repository
 public interface ChampionnatRepository extends JpaRepository<Championnat,Long> {
+
 }

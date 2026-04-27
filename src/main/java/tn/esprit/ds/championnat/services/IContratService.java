@@ -6,4 +6,6 @@ public interface IContratService {
     Contrat ajouterContrat(Contrat contrat);
     Contrat ajouterContratEtAffecterASponsorEtEquipe(Contrat c, Long idEq,String nom,String pays);
     void archiverContratsExpireesEtAffichageContratsActifsParEquipe();
+    Contrat ajoutContratEtAffecterASponsorEtEquipe(Contrat contrat,String libelleEquipe, String nomSponsor,String pays
+    );
 }

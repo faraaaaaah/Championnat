@@ -57,4 +57,14 @@ public class ContratServiceImpl implements IContratService{
         }
     }
 
+    @Override
+    public Contrat ajoutContratEtAffecterASponsorEtEquipe(Contrat contrat, String libelleEquipe, String nomSponsor, String pays) {
+        Equipe equipe = equipeRepository.findByLibelle(libelleEquipe);
+        Sponsor sponsor = sponsorRepository.findByNomAndPays(nomSponsor, pays);
+        contrat.setEquipe(equipe);
+        contrat.setSponsor(sponsor);
+        contratRepository.save(contrat);
+        return contrat;
+    }
+
 }

@@ -7,8 +7,11 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.ds.championnat.entities.Pilote;
+import tn.esprit.ds.championnat.entities.PiloteDTO;
 import tn.esprit.ds.championnat.entities.Sponsor;
 import tn.esprit.ds.championnat.services.PiloteServiceImpl;
+
+import java.util.List;
 
 @Tag(name="Gestion des pilotes")
 @RestController
@@ -30,5 +33,10 @@ public class PiloteController {
     @PutMapping("/affecterpilote-equipe/{libelleP}/{libelle}")
     public Pilote affecterPiloteAEquipe(@PathVariable String libelleP,@PathVariable String libelle) {
         return piloteService.affecterPiloteAEquipe(libelleP,libelle);
+    }
+    @Operation(description = "Afficher le gagnant de chaque championnat pour les années > annee")
+    @GetMapping("/winners/{annee}")
+    public List<PiloteDTO> listeWinners(@PathVariable Integer annee) {
+        return piloteService.listeWinners(annee);
     }
 }

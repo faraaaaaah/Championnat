@@ -67,6 +67,10 @@ public class PiloteServiceImpl implements IPiloteService{
             p.setClassementGeneral(position++);
             piloteRepository.save(p);
             System.out.println("Classement " + p.getClassementGeneral() + ": " + p.getLibelleP() + " - " + p.getNbPointsTotal() + " pts");
+        }
     }
-}
+    @Override
+    public List<PiloteDTO> listeWinners(Integer annee) {
+        return piloteRepository.listeWinners(annee);
+    }
 }
